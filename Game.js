@@ -30,23 +30,33 @@ class Game {
         }
     }
 
-    play() {
-      quiz.hide();
-      Player.getPlayerInfo(); 
-      var display_answer = 270;
-      if(allPlayers!==undefined) {
-      for(var plr in allPlayers) {
-        var correctOption = "b"
-        if(allPlayers[plr].answer===correctOption) {
-          stroke("green");
-        }else {
-          stroke("red");
-         }
+      play() { 
+        quiz.hide(); 
+        background("Yellow"); 
+        fill(0); 
+        textSize(30); 
+        text("Result of the Quiz",340, 50); 
+        text("----------------------------",320, 65); 
+        Player.getPlayerInfo(); 
+        if(allPlayers !== undefined) { 
+         // debugger; 
+          var display_Answers = 230; 
+          fill("Blue"); 
+          textSize(20); 
+          text("*NOTE: Contestant who answered correct are highlighted in green color!",130,230); 
+          for(var plr in allPlayers) { 
+            //debugger; 
+            var correctAns = "b"; 
+            if (correctAns === allPlayers[plr].answer) 
+            fill("Green") 
+            else fill("red"); 
+            display_Answers+=30; 
+            textSize(20); 
+            text(allPlayers[plr].name + ": " + allPlayers[plr].answer, 250,display_Answers) 
+          } 
+        }
       }
+      
 
-      display_answer+=20;
-      text(allPlayers[plr].name + ":" + allPlayers[plr].answer,150,display_answer);
-    }
-      //console.log(allPlayers[plr].name);
-    }
+      
 }
