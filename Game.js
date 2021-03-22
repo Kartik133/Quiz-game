@@ -46,7 +46,7 @@ class Game {
           text("*NOTE: Contestant who answered correct are highlighted in green color!",130,230); 
           for(var plr in allPlayers) { 
             //debugger; 
-            var correctAns = "b"; 
+            var correctAns = "2"; 
             if (correctAns === allPlayers[plr].answer) 
             fill("Green") 
             else fill("red"); 
